@@ -1,5 +1,5 @@
 {
-	"name": "AzureTable1",
+	"name": "table",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureTableStorage1",
