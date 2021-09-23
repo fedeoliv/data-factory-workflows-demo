@@ -23,7 +23,7 @@ jobs:
 
       - name: Export ARM Template
         id: export
-        uses: Azure/data-factory-export-action@v1.0.1
+        uses: Azure/data-factory-export-action@v1.0.2
         # with:
         #   path: <data-factory-dir> # replace by the folder that contains the Data Factory resources and the package.json
       
