@@ -30,7 +30,7 @@ jobs:
       - name: Run Pre-deployment script
         run: |
           ./PrePostDeploymentScript.ps1 \
-            -armTemplate "armTemplate/ARMTemplateForFactory.json" \
+            -armTemplate "ARMTemplateForFactory.json" \
             -ResourceGroupName "rg-adf-github-demo" \
             -DataFactoryName "adfghdemo" \
             -predeployment $true \
