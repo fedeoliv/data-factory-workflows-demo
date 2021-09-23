@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Code checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Validate
         uses: Azure/data-factory-validate-action@v1.0.0
