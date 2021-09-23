@@ -23,7 +23,7 @@ jobs:
 
       - name: Export ARM Template
         id: export
-        uses: Azure/data-factory-export-action@v1.0.0
+        uses: Azure/data-factory-export-action@v1.0.1
         # with:
         #   path: <data-factory-dir> # replace by the folder that contains the Data Factory resources and the package.json
       
@@ -32,8 +32,8 @@ jobs:
         with:
           resourceGroupName: rg-adf-github-demo
           dataFactoryName: adfghdemo
-          armTemplateFile: 'armTemplate/ARMTemplateForFactory.json'
-          armTemplateParametersFile: 'armTemplate/ARMTemplateParametersForFactory.json'
+          armTemplateFile: '${{steps.export.outputs.arm-template-directory}}/ARMTemplateForFactory.json'
+          armTemplateParametersFile: '${{steps.export.outputs.arm-template-directory}}/ARMTemplateParametersForFactory.json'
           # additionalParameters: 'key1=value key2=value keyN=value' [optional]
 
       - name: Publish artifact
