@@ -1,0 +1,12 @@
+{
+	"name": "StarWarsAPI Service",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://swapi.dev/api/people",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
