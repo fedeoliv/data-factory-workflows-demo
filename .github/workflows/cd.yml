@@ -32,8 +32,8 @@ jobs:
         with:
           resourceGroupName: rg-adf-github-demo
           dataFactoryName: adfghdemo
-          armTemplateFile: '${{steps.export.outputs.arm-template-directory}}ARMTemplateForFactory.json'
-          armTemplateParametersFile: '${{steps.export.outputs.arm-template-directory}}ARMTemplateParametersForFactory.json'
+          armTemplateFile: 'armTemplate/ARMTemplateForFactory.json'
+          armTemplateParametersFile: 'armTemplate/ARMTemplateParametersForFactory.json'
           # additionalParameters: 'key1=value key2=value keyN=value' [optional]
 
       - name: Publish artifact
