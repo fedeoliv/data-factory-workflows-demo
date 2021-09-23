@@ -26,13 +26,9 @@ jobs:
         uses: Azure/data-factory-export-action@v1.0.2
         # with:
         #   path: <data-factory-dir> # replace by the folder that contains the Data Factory resources and the package.json
-      
-      - name: az pwsh install
-        run: Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-        shell: pwsh
-        
+
       - name: Deploy resources
-        uses: Azure/data-factory-deploy-action@v1.0.3
+        uses: Azure/data-factory-deploy-action@v1.1.0
         with:
           resourceGroupName: rg-adf-github-demo
           dataFactoryName: adfghdemo
