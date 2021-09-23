@@ -26,7 +26,37 @@
 						"azureTableInsertType": "merge",
 						"writeBatchSize": 10000
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							},
+							{
+								"source": {
+									"path": "['height']"
+								},
+								"sink": {
+									"name": "height"
+								}
+							},
+							{
+								"source": {
+									"path": "['mass']"
+								},
+								"sink": {
+									"name": "mass"
+								}
+							}
+						],
+						"collectionReference": "$['results']"
+					}
 				},
 				"inputs": [
 					{
