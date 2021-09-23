@@ -27,6 +27,16 @@ jobs:
         # with:
         #   path: <data-factory-dir> # replace by the folder that contains the Data Factory resources and the package.json
       
+      - name: Run Pre-deployment script
+        run: |
+          PrePostDeploymentScript.ps1 \
+            -armTemplate '${{steps.export.outputs.arm-template-directory}}/ARMTemplateForFactory.json' \
+            -ResourceGroupName "rg-adf-github-demo" \
+            -DataFactoryName "adfghdemo" \
+            -predeployment $true \
+            -deleteDeployment $false
+        shell: pwsh
+        
       - name: Deploy resources
         uses: Azure/data-factory-deploy-action@v1.0.2
         with:
