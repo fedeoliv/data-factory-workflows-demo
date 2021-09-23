@@ -28,7 +28,7 @@ jobs:
         #   path: <data-factory-dir> # replace by the folder that contains the Data Factory resources and the package.json
       
       - name: Deploy resources
-        uses: Azure/data-factory-deploy-action@v1.0.1
+        uses: Azure/data-factory-deploy-action@v1.0.2
         with:
           resourceGroupName: rg-adf-github-demo
           dataFactoryName: adfghdemo
