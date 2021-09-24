@@ -49,7 +49,25 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureTable1')]",
+			"name": "[concat(parameters('factoryName'), '/RestResource1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "StarWarsAPI Service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/StarWarsAPI Service')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/table')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -66,24 +84,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureTableStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/RestResource1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "StarWarsAPI Service",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "RestResource",
-				"typeProperties": {},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/StarWarsAPI Service')]"
 			]
 		},
 		{
@@ -157,7 +157,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "AzureTable1",
+								"referenceName": "table",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -172,7 +172,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/RestResource1')]",
-				"[concat(variables('factoryId'), '/datasets/AzureTable1')]"
+				"[concat(variables('factoryId'), '/datasets/table')]"
 			]
 		}
 	]
